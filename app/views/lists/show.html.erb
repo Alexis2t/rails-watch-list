@@ -1,0 +1,39 @@
+<%= render "navbar" %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/469578/screenshots/2402048/media/c3ae32a0a18538ef5b83a30783beac94.gif)">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="d-flex justify-content-end align-items-center">
+    <%= link_to "Add a movie", new_list_bookmark_path(@list), class:"btn btn-primary" %>
+  </div>
+  <div class="d-flex text-align-center flex-wrap mt-3 mb-4">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="card-movie-container">
+        <div class="card-movie">
+          <img src="https://cdn.dribbble.com/users/900034/screenshots/2414518/rey2.jpg?resize=800x600&vertical=center" />
+          <div class="card-movie-infos">
+            <div class="flex-grow-1">
+              <h2><%= bookmark.movie.title %></h2>
+              <p><%= bookmark.comment %></p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="flex-grow-1">
+                <i class="fa-solid fa-quote-left"></i>
+                <%= bookmark.comment %>
+              </p>
+              <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sur?"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <%= link_to "Back to lists", lists_path %>
+  <div class="mb-5"></div>
+</div>

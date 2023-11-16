@@ -1,0 +1,26 @@
+<%= render "navbar" %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/28275/screenshots/3809402/media/8b9745d94df96cf645df6f5577216ab7.gif)">
+  <div class="container">
+    <h1>Watch a <strong>Movie</strong></h1>
+    <p>Lean, select and enjoy!</p>
+  </div>
+</div>
+
+<div class="container w-75 pb-5">
+  <div class="mt-5 mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Your lists</h1>
+      <%= link_to "New list", new_list_path, class:'btn btn-primary' %>
+    </div>
+    <div class="mt-4 cards-container d-flex flex-wrap">
+      <% @lists.each do |list| %>
+        <div class="card-list">
+          <div class="card card-list-content" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/730703/screenshots/3912326/star_wars_the_empire_strikes_back.jpg?resize=800x600&vertical=center)">
+              <h3><%= link_to list.name, list_path(list) %></h3>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
