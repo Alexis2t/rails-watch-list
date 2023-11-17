@@ -1,5 +1,5 @@
 .card-list {
-  height: 250px;
+  height: 300px;
   width: 50%;
   padding: 20px;
 }
@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position: center;
 
   h1 {
     text-decoration: none;

@@ -16,7 +16,7 @@
     <div class="mt-4 cards-container d-flex flex-wrap">
       <% @lists.each do |list| %>
         <div class="card-list">
-          <div class="card card-list-content" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/730703/screenshots/3912326/star_wars_the_empire_strikes_back.jpg?resize=800x600&vertical=center)">
+          <div class="card card-list-content" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= list.banner_url %>?resize=800x600)">
               <h3><%= link_to list.name, list_path(list) %></h3>
           </div>
         </div>
