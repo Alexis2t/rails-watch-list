@@ -1,10 +1,17 @@
-<%= render "navbar" %>
+<%#= render "navbar" %>
+
 <div class="container">
   <h1>Create a new list</h1>
 
-  <%= simple_form_for @list do |f| %>
-    <%= f.input :name %>
-    <%= f.input :banner_url %>
-    <%= f.button :submit, class:'btn btn-primary' %>
-  <% end %>
+  <div>
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name %>
+      <%= f.input :banner_url %>
+      <%= f.button :submit, class:'btn btn-primary' %>
+    <% end %>
+  </div>
+
+  <div class="mt-3">
+    <%= link_to "< Back to lists", lists_path %>
+  </div>
 </div>

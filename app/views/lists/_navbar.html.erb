@@ -1,6 +1,9 @@
 <nav class="navbar">
   <div class="container-fluid">
       <%= link_to "Movienimous", lists_path, class:"navbar-brand" %>
-      <%= link_to "Create a list", new_list_path, class:"btn btn-primary" %>
+      <div class="d-flex align-items-center">
+        <%= link_to "My lists", lists_path, class:"navbar-brand" %>
+        <%= link_to "Create a list", new_list_path, class:"btn btn-primary" %>
+      </div>
   </div>
 </nav>
