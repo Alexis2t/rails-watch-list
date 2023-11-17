@@ -1,6 +1,6 @@
 <%= render "navbar" %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/28275/screenshots/3809402/media/8b9745d94df96cf645df6f5577216ab7.gif)">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path('ilak2o29fdupf9febu1k', width: 400, height: 300, crop: :fill) %>)">
   <div class="container">
     <h1>Watch a <strong>Movie</strong></h1>
     <p>Lean, select and enjoy!</p>
@@ -16,8 +16,12 @@
     <div class="mt-4 cards-container d-flex flex-wrap">
       <% @lists.each do |list| %>
         <div class="card-list">
-          <div class="card card-list-content" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= list.banner_url %>?resize=800x600)">
-              <h3><%= link_to list.name, list_path(list) %></h3>
+          <% if list.image.attached? %>
+            <div class="card card-list-content" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(list.image.key, width: 400, height: 300, crop: :fill) %>)">
+          <% else %>
+            <div class="card card-list-content" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path('r1rzia1lymr7cszrdumm', width: 400, height: 300, crop: :fill) %>)">
+          <% end %>
+            <h3><%= link_to list.name, list_path(list) %></h3>
           </div>
         </div>
       <% end %>

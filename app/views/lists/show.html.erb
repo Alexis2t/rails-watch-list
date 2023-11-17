@@ -1,6 +1,9 @@
 <%= render "navbar" %>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.banner_url %>)">
+<% if @list.image.attached? %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(@list.image.key, width: 400, height: 300, crop: :fill) %>)">
+<% else %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path('r1rzia1lymr7cszrdumm', width: 400, height: 300, crop: :fill) %>)">
+<% end %>
   <div class="container">
     <h1><%= @list.name %></h1>
   </div>

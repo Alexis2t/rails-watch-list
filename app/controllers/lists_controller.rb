@@ -21,13 +21,14 @@ class ListsController < ApplicationController
   end
 
   def show
+    # raise
     @bookmarks = Bookmark.where(list: @list.id)
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:name, :banner_url)
+    params.require(:list).permit(:name, :banner_url, :image)
   end
 
   def set_lists
